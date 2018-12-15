@@ -69,3 +69,5 @@
           beq $t1, 5, lengthError
           j stringLength
 
+callconversions:
+    sub $t2, $t2, $t1 
