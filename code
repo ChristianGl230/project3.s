@@ -120,6 +120,9 @@ callconversions:
      jr $ra
 DecimalVersion:
     addi $sp, $sp, -8 
-    sw $ra, 0($sp) 
+    sw $ra, 0($sp)
+    sw $s3, 4($sp)
+    beq $a1, $0, return_zero 
+ 
 
    
