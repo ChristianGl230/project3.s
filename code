@@ -78,4 +78,45 @@ callconversions:
     li $a2, 1 
     jal DecimalVersion 
     j return
+    
+    return:
+    move $a0, $v0
+    li $v0, 1
+    syscall
+    
+    lw $ra, 0($sp) 
+    addi $sp, $sp, 4 
+    jr $ra
+
+    end:
+    move $a0, $t5 
+    li $v0, 1 
+    syscall
+    li $v0, 10 #end program
+    syscall
+
+    emptyError:
+    la $a0, emptyErrorMessage 
+    li $v0, 4 
+    syscall
+    li $v0, 10 
+    syscall
+
+    lengthError:
+    la $a0, lengthErrorMessage 
+    li $v0, 4 
+    syscall
+
+    li $v0, 10 
+    syscall
+
+     baseError:
+     la $a0, baseErrorMessage 
+     li $v0, 4 
+     syscall
+
+     li $v0, 10 
+     syscall
+     jr $ra
+
    
