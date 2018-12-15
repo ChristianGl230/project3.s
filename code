@@ -20,4 +20,9 @@
 	beq $t1,$0, emptyError
 
 	addi $s0, $0, 32 
-	addi $t3, $0, 1 
+	addi $t3, $0, 1
+	addi $t4, $0, 0
+        addi $t5, $0, 0
+
+        ignoreSpaces:
+        lb $t0, 0($t2) 
