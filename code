@@ -72,4 +72,8 @@
 callconversions:
     sub $t2, $t2, $t1 
     addi $sp, $sp, -4
-    sw $ra, 0($sp) 
+    sw $ra, 0($sp)  
+    move $a0, $t2
+    li $a1, 4
+    li $a2, 1 
+   
