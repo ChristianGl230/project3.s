@@ -125,7 +125,49 @@ DecimalVersion:
     beq $a1, $0, return_zero
     addi $a1, $a1, -1 
     add $t0, $a0, $a1 
-    lb $s3, 0($t0)  
+    lb $s3, 0($t0)
+         blt $s3, 48, baseError 
+     blt $s3, 58, Numbers
+     blt $s3, 65, baseError
+     blt $s3, 87, Upletters
+     blt $s3, 97, baseError
+     blt $s3, 118, Lowletters
+     blt $s3, 128, baseError
+     
+     Numbers:
+     addi $s4, $s4, -48
+     jal More
+     
+     Upletters:
+     addi $s4, $s4, -55
+     jal More
+     
+     Lowletters:
+     addi $s4, $s4, -87
+     jal More
+   
+     More:
+     mul $s3, $s3, $a2 
+     mul $a2, $a2, 32 
+     jal DecimalVersion
+
+    
+    
+     add $v0, $s3, $v0   
+      lw $ra, 0($sp)      
+      lw $s3, 4($sp)
+      addi $sp, $sp, 8
+      jr $ra
+        
+      return_zero:
+      li $v0, 0
+      lw $ra, 0($sp)
+      lw $s3, 4($sp)
+      addi $sp, $sp, 8
+      jr $ra
+      li $v0, 10
+      syscall
+
  
 
    
