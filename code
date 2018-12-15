@@ -29,3 +29,4 @@
 	addi $t2, $t2, 1 
 	addi $t1, $t1, 1
 	beq $t0, 32, ignoreSpaces 
+	beq $t0, 10, emptyError #jump to isEmpty branch if equal
