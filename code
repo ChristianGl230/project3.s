@@ -20,3 +20,4 @@
 	beq $t1,$0, emptyError
 
 	addi $s0, $0, 32 
+	addi $t3, $0, 1 
