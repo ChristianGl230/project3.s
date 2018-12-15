@@ -76,4 +76,6 @@ callconversions:
     move $a0, $t2
     li $a1, 4
     li $a2, 1 
+    jal DecimalVersion 
+    j return
    
